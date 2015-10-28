@@ -1,5 +1,5 @@
 .footer {
-    background: url(image/footer-bg.jpg) 43% 100% no-repeat;
+    background: url(image/footer-bg.jpg) 39% 100% no-repeat;
     height: 277px;
     padding-top: 36px;
 
@@ -14,13 +14,19 @@
     }
     &__right {
         margin-top: 46px;
+        float: right;
+        width: 360px;
+        margin-right: 10px;
     }
     &__social {
+        margin-top: 13px;
         text-align: right;
     }
 }
 
 .map {
+    min-height: 135px;
+    white-space: nowrap;
     &__r1,
     &__r2 {
         font-size: 13px;
@@ -31,6 +37,10 @@
             color: #a1a1a1;
             text-decoration: none
         }
+    }
+
+    &__r2 {
+        margin-bottom: 3px;
     }
 
     &__r1 {
@@ -44,6 +54,16 @@
             display: block;
         }
     }
+
+    &__column {
+        vertical-align: top;
+        white-space: normal;
+        & + & {
+            padding-left: 24px;
+        }
+        display: inline-block;
+    }
+
 }
 
 .social {
@@ -63,31 +83,37 @@
         }
     }
 
+    &__vk,
+    &__facebook,
+    &__instagram {
+        background-image: url(image/icons-footer.svg);
+    }
+
     &__facebook {
         margin-left: 19px;
         width: 8px;
-        height: 15px;
-        background-position: -150px -293px;
+        height: 17px;
+        background-position: -6px -4px;
     }
+
     &__twitter {
         margin-left: 19px;
         width: 15px;
         height: 15px;
         background-position: -177px -293px;
     }
-    &__youtube {
+    &__vk {
         margin-left: 12px;
         width: 17px;
-        height: 18px;
+        height: 15px;
         position: relative;
         top: 2px;
-        background-position: -204px -293px;
+        background-position: -29px -7px;
     }
-    &__rss {
+    &__instagram {
         margin-left: 14px;
         width: 15px;
-        height: 14px;
-        background-position: -236px -294px;
+        height: 15px;
+        background-position: -59px -6px;
     }
 }
-

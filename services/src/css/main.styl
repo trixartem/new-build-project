@@ -58,7 +58,7 @@ a {
         color: rgba(0, 184, 152, 1);
         text-decoration: underline;
         transition: color .2s ease;
-        font-weight: 700;
+        font-weight: 400;
         &:hover {
             color: rgba(0, 184, 152, 0.6);
         }
@@ -751,6 +751,10 @@ input[type=time]::-webkit-outer-spin-button {
         transition-duration: 0.2s;
         cursor: pointer;
         color: #9f9f9f;
+        &.checked {
+            background-color: #00bb9c;
+            color: #fff;
+        }
         &:hover {
             background-color: #00bb9c;
             color: #fff;
@@ -768,6 +772,10 @@ input[type=time]::-webkit-outer-spin-button {
         transition-property: visibility, opacity;
         transition-duration: 0s, .2s;
         transition-delay: .2s, 0s;
+
+        max-height: 136px;
+        overflow-y: auto;
+
         &.showed {
             visibility: visible;
             opacity: 1;

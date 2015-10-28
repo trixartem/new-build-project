@@ -20,6 +20,11 @@ if (!name) {
 
 console.log('project: ', name);
 
+gulp.task('common-styl', function () {
+    gulp.src('./common/*.styl')
+        .pipe(gulp.dest('./' + name + '/src/css'));
+});
+
 // Get one .styl file and render
 gulp.task('styl', function () {
     gulp.src('./' + name + '/src/css/index.styl')
@@ -52,7 +57,6 @@ gulp.task('html', function () {
         .pipe(gulp.dest('./' + name + '/dist'));
 });
 
-
 gulp.task('js', function () {
     gulp.src('./' + name + '/src/js/index.js')
         .pipe(browserify({
@@ -82,6 +86,11 @@ gulp.task('watch', function () {
         name = folder[1];
         gulp.run('js');
     })
+
+    //gulp.watch('./common/*.styl', function (event) {
+    //    gulp.run('common-styl');
+    //})
+
     gulp.watch('./**/src/index.html', function (event) {
         var folder = regex.exec(event.path);
         name = folder[1];

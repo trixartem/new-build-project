@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.scrollToElement(this, 700, null, null, IScroll.utils.ease.quadratic);
     });
     $(".calendar__list").mCustomScrollbar({
-        axis:"y",
-        theme:"parent",
-        scrollButtons:{ enable: true },
+        axis: "y",
+        theme: "parent",
+        scrollButtons: { enable: true },
         scrollbarPosition: "outside"
     });
 }, false);
@@ -147,22 +147,119 @@ $('.tabs__item').click(function () {
 var select = $('.select');
 
 $(document).click(function () {
-   $('.select__list').removeClass('showed');
+    $('.select__list').removeClass('showed');
 });
 
+var schedule = $('.calendar__schedual tr');
+console.log(schedule);
+
+var days = $('.calendar__row');
+var cache = {
+    day: 'all',
+    time: 'all',
+    ex: 'all'
+}
+var moreButton = $('.calendar__all');
+
+function checkClearDays() {
+    days.each(function () {
+        if ($(this).find('table tr:visible').length === 0) {
+            $(this).hide();
+        }
+    });
+}
+function showAll() {
+    moreButton.hide();
+    schedule.show();
+    days.show();
+}
+moreButton.click(function () {
+    $(this).hide();
+    cache.day = 'all';
+    days.show();
+    schedule.show();
+
+    toggleRow('ex');
+    toggleRow('time');
+    checkClearDays();
+});
+
+function toggleRow(name) {
+    if (cache[name] === 'all') {
+        return;
+    }
+    if (name === 'day') {
+        days.not('[data-' + name + '="' + cache[name] + '"]:visible').hide();
+        moreButton.show();
+        return;
+    }
+    var selector = '[data-' + name + '="' + cache[name] + '"]:visible';
+    schedule.not(selector).hide();
+}
+
+$('.calendar__body').on('change', function (e, data) {
+    showAll();
+
+    cache.day = data.date;
+
+    if (data === 'all') {
+        toggleRow('ex');
+        toggleRow('time');
+    } else {
+        toggleRow('day');
+        toggleRow('ex');
+        toggleRow('time');
+    }
+    checkClearDays();
+});
 select.each(function () {
     var $select = $(this);
     var list = $select.find('.select__list');
     var items = list.find('.select__item');
-    //$select.on('change', function () {
-    //    console.log(arguments);
-    //})
+    $('#clndr-time').on('change', function (e, data) {
+        showAll();
+
+        cache.time = data;
+
+        if (data === 'all') {
+            toggleRow('ex');
+            toggleRow('day');
+        } else {
+            toggleRow('ex');
+            toggleRow('time');
+            toggleRow('day');
+        }
+        checkClearDays();
+    });
+    $('#exercise').on('change', function (e, data) {
+        showAll();
+
+        cache.ex = data;
+
+        if (data === 'all') {
+            toggleRow('time');
+            toggleRow('day');
+        } else {
+            toggleRow('time');
+            toggleRow('ex');
+            toggleRow('day');
+        }
+        days.each(function () {
+            if ($(this).find('table tr:visible').length === 0) {
+                $(this).hide();
+            }
+        });
+    });
     items.click(function (e) {
         var $this = $(this);
         e.stopPropagation();
         $('.select__list').removeClass('showed');
-        $select.trigger('change',  $this.data('value') || $this.text());
-        list.removeClass('showe');
+        $select.trigger('change', $this.data('value') || $this.text());
+
+        items.removeClass('checked');
+        $this.addClass('checked');
+
+        list.removeClass('showed');
     });
     $select.find('.select__toggle-button').click(function (e) {
         e.stopPropagation();
