@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name=”description” content=”Каталог статей по планированию и ведению беременности, периодам родов,
+          естественным родам и послеродовому восстановлению.”>
+    <meta name="Keywords" content="статьи о беременности, статьи о родах">
+    <title>Статьи по беременности и родам</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <meta name=”twitter:card” content=””>
+    <meta name=”twitter:title” content=””>
+    <meta name=”twitter:description” content=””>
+    <meta name=”twitter:url” content=””>
+    <!--Изображение должно быть квадратным не менее чем 60x60px-->
+    <meta name=”twitter:image” content=””>
+
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header class="header b-container">
+    <div class="row">
+        <div class="header__left col-xs-3">
+            <figure class="header__logo"><a class="link logo" href="/"></a></figure>
+        </div>
+        <div class="header__right col-xs-offset-3">
+            <div class="header__contacts"><a href="#" class="link _cabinet">Личный кабинет</a>
+                <figure class="header__search"></figure>
+                <span class="header__phone">+7(495)321-54-76</span></div>
+            <nav class="header__menu">
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a class="menu__link _active" href="#">О нас</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Специалисты</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Прайс</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Расписание</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Лицензия</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Магазин</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="line"></div>
+<main class="body b-container">
+    <section class="body__breadcrumb">
+        <ol class="breadcrumb" style="margin-bottom: 0;">
+            <li class="active"><a class="breadcrumb__link" href="#">Главная</a></li>
+            <li class="active">Специалисты</li>
+        </ol>
+    </section>
+    <div class="body__main">
+        <h1 class="body__header">Специалисты</h1>
+        <section class="body__sort">
+            <article class="sort">
+                <span class="sort__text">Поиск по специальности: </span>
+
+                <div class="sort__select">
+                    <select id="selectbox1">
+                        <option>все</option>
+                        <optgroup label="Акушеры">
+                            <option value="" checked>Акушеры–гинекологи</option>
+                            <option value="aye">Другие акушеры</option>
+                        </optgroup>
+                        <optgroup label="Массажисты">
+                            <option value="">Массажисты1</option>
+                            <option value="">Массажисты2</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </article>
+        </section>
+        <section class="body__list">
+            <div class="spec" data-name="Замятина Анна Владимировна">
+                <div class="spec__buttons">
+                    <button class="btn btn-primary btn-sm book" data-target="#appointment"
+                                           data-toggle="modal">Запись на прием</button>
+                    <a href='#' class="btn btn-primary btn-sm grey">Статьи в блоге</a>
+                    <a href='#' class="btn btn-primary btn-sm comments">Отзывы</a><br>
+                    <a class="spec__comments-link" data-target="#create-comment"
+                       data-toggle="modal">Оставить отзыв</a>
+                </div>
+                <a class="spec__link" href="">
+                    <img src="https://placehold.it/245x183">
+                </a>
+
+                <div class="spec__info">
+                    <div class="spec__profile">
+                        <a href="#" class="spec__profile-link">Cпециализация,</a>&nbsp;
+                        <a href="#" class="spec__profile-link">специализация</a>
+                    </div>
+                    <div class="spec__name">Замятина<br> Анна Владимировна</div>
+                </div>
+            </div>
+            <div class="spec" data-name="Иванов Виктор Сергеевич">
+                <div class="spec__buttons">
+                    <button class="btn btn-primary btn-sm book" data-target="#appointment"
+                            data-toggle="modal">Запись на прием
+                    </button>
+                    <a href='#' class="btn btn-primary btn-sm grey">Статьи в блоге</a>
+                    <a href='#' class="btn btn-primary btn-sm comments">Отзывы</a><br>
+                    <a class="spec__comments-link" data-target="#create-comment"
+                       data-toggle="modal">Оставить отзыв</a>
+                </div>
+                <a class="spec__link" href="">
+                    <img src="https://placehold.it/245x183">
+                </a>
+
+                <div class="spec__info">
+                    <div class="spec__profile">
+                        <a href="#" class="spec__profile-link">Cпециализация,</a>&nbsp;
+                        <a href="#" class="spec__profile-link">специализация</a>
+                    </div>
+                    <div class="spec__name">Иванов<br> Виктор Сергеевич</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<div class="line"></div>
+<footer class="footer b-container">
+    <div class="row">
+        <div class="footer__left col-xs-3">
+            <figure class="footer__logo"><a class="link logo" href="/"></a></figure>
+            <div class="footer__copyright">To Be Parents. Все права защещены. 2015&copy;</div>
+        </div>
+        <div class="footer__right col-xs-offset-8">
+            <div class="row">
+                <div class="col-xs-3">
+                    <a class="link map__r1" href="#">Специалисты</a>
+
+                    <div class="map__group">
+                        <a class="link map__r2" href="#">Ссылка1</a>
+                        <a class="link map__r2" href="#">Специалисты</a>
+                        <a class="link map__r2" href="#">Ссылка3</a>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <a class="link map__r1" href="#">Здесь</a>
+
+                    <div class="map__group">
+                        <a class="link map__r2" href="#">Ссылка1</a>
+                        <a class="link map__r2" href="#">Расписание</a>
+                        <a class="link map__r2" href="#">Ссылка3</a>
+                    </div>
+                    </a></div>
+                <div class="col-xs-3"><a class="link map__r1" href="#"><a class="link map__r1" href="#">Здесь</a>
+
+                    <div class="map__group">
+                        <a class="link map__r2" href="#">Ссылка1</a>
+                        <a class="link map__r2" href="#">О нас</a>
+                        <a class="link map__r2" href="#">Ссылка3</a>
+                    </div>
+                </a></div>
+                <div class="col-xs-3"><a class="link map__r1" href="#"><a class="link map__r1" href="#">Здесь</a>
+
+                    <div class="map__group">
+                        <a class="link map__r2" href="#">Ссылка1</a>
+                        <a class="link map__r2" href="#">Ссылка2</a>
+                        <a class="link map__r2" href="#">Ссылка3</a>
+                    </div>
+                </a></div>
+            </div>
+            <div class="footer__social">
+               <span class="social__text">Мы в соцсетях:</span>
+               <span class="social__item social__facebook"></span>
+               <span class="social__item social__twitter"></span>
+               <span class="social__item social__vk"></span>
+               <span class="social__item social__instagram"></span>
+           </div>
+        </div>
+    </div>
+</footer>
+<div class="modal fade" id="create-comment" tabindex="-1" role="dialog" aria-labelledby="create-comment"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Ваш отзыв</h4>
+            </div>
+            <div class="modal-body">
+                <form id="comment-form">
+                    <div class="form-group">
+                        <label for="comment-client-name" class="control-label">ФИО специалиста:</label>
+                        <input type="text" class="form-control" required id="comment-spec-name"
+                               placeholder="Иванов Иван Иванович">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment-client-name" class="control-label">Фамили Имя Отчество:</label>
+                        <input type="text" class="form-control" required id="comment-client-name"
+                               placeholder="Ваше Фамили Имя Отчество">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment-full" class="control-label">Комментарий:</label>
+                        <textarea class="form-control" id="comment-full"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Отмена</button>
+                <button type="button" disabled id="comment-submit-form" class="btn btn-primary btn-sm" type="submit">
+                    Записаться
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="appointment" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Запись на прием</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="spec-name" class="control-label">Cпециалист:</label>
+                        <input type="text" class="form-control" required id="spec-name"
+                                                       placeholder="Иванов Иван Иванович">
+                    </div>
+                    <div class="form-group">
+                        <label for="client-name" class="control-label">Фамили Имя Отчество:</label>
+                        <input type="text" class="form-control" required id="client-name"
+                               placeholder="Ваше Фамили Имя Отчество">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <label for="date" class="control-label">Дата:</label>
+                                <input type="date" class="form-control" required id="date" placeholder="Дата записи">
+                            </div>
+                            <div class="col-xs-4">
+                                <label for="time" class="control-label">Время:</label>
+                                <input type="time" class="form-control" required id="time" placeholder="Время">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="control-label">Ваш номер телефона:</label>
+                        <input type="phone" class="form-control" required id="phone" placeholder="+7(495)1231212">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="control-label">Комментарий:</label>
+                        <textarea class="form-control" id="comment"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Отмена</button>
+                <button type="button" disabled id="submit-form" class="btn btn-primary btn-sm" type="submit">
+                    Записаться
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="success">
+                    <div class="success__img"></div>
+                    <div class="success__message">Заявка отправлена.
+                        <br>Наш специалист свяжется с Вами в течение 30 минут
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="lib/tether.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

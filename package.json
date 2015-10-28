@@ -1,0 +1,27 @@
+{
+  "name": "builing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "akuv",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer-stylus": "^0.8.0",
+    "gulp": "^3.9.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-stylus": "^2.1.0"
+  },
+  "devDependencies": {
+    "connect": "^3.4.0",
+    "connect-livereload": "^0.5.3",
+    "gulp-browserify": "^0.5.1",
+    "gulp-csso": "^1.0.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-svgmin": "^1.2.0",
+    "gulp-uglify": "^1.4.2",
+    "yargs": "^3.27.0"
+  }
+}
