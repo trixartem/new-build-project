@@ -1,5 +1,6 @@
 require('./form')();
 require('./calendar')();
+require('../../../common/notification');
 
 var iScroll = require('./iscroll');
 
