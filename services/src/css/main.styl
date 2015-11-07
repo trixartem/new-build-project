@@ -628,7 +628,7 @@ a {
         display: inline-block;
         &._time {
             display: inline-block;
-            width: 91px;
+            width: 85px;
         }
     }
     &__date {
@@ -650,11 +650,13 @@ a {
     & table .time{
         padding: 6px 0;
         opacity: .7;
-        width: 93px;
+        width: 92px;
+        vertical-align: top;
     }
     & table .exercise{
         padding: 6px 0;
-        width: 100px;
+        white-space: normal;
+        width: 150px;
     }
     & table .button .btn,
     & &__all.btn {
@@ -678,9 +680,10 @@ a {
         }
     }
     & table .button{
-        width: 127px;
+        width: 93px;
         text-align: right;
-        vertical-align: middle
+        vertical-align: top;
+        padding: 8px 0 6px;
     }
     &__row {
         white-space: nowrap

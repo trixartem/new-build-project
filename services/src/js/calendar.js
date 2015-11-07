@@ -26,6 +26,7 @@ module.exports = function () {
                  if (!target.events.length) {
                      return;
                  }
+                 console.log(target.date['_i']);
                  $('.calendar__body').trigger('change', {
                      date: target.date['_i']
                  });
