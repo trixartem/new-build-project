@@ -1,4 +1,4 @@
-//var changeSelect = require('./select')();
+var changeSelect = require('./select')();
 
 module.exports = function () {
     window.initMap = function () {
@@ -248,10 +248,13 @@ module.exports = function () {
                 ]
             }
         ];
-        var places = [{ lat: 55.749560, lng: 37.641003 }];
+        var $map = $('#map');
+        var places = $map.data('places');
+        var center = $map.data('center');
+        var zoom = $map.data('zoom');
         var mapOptions = {
-            zoom: 14,
-            center: window.innerWidth < 720 ? places[0]  : { lat: 55.7565259, lng: 37.61995118 },
+            zoom: zoom  || 14,
+            center: center,
             zoomControl: true,
             zoomControlOptions: {
                 style: google.maps.ZoomControlStyle.SMALL,
@@ -265,12 +268,6 @@ module.exports = function () {
             styles: styles
         };
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        //Если всего один филиал
-        //Если несколько филиалов
-        //var places = [{ lat: 55.74956, lng: 37.641003 }, { lat: 55.75956, lng: 37.651003 }, {
-        //    lat: 55.75956,
-        //    lng: 37.621003
-        //}];
 
         var markers = [];
         var icons = {
@@ -291,66 +288,65 @@ module.exports = function () {
                 fontWeight: 'bold'
             }
         };
-        //if (places.length === 1) {
+        if (places.length === 1) {
             markers.push(new google.maps.Marker({
-                position: { lat: 55.74956, lng: 37.641003 },
+                position: places[0],
                 map: map,
                 title: 'Hello World!',
                 icon: { url: './image/icon_maps_named.svg' }
             }));
 
-        //} else {
-        //    places.forEach(function (place, index) {
-        //        var label = $.extend({}, (index === 0 ? labels.check : labels.uncheck), { text: index + 1 + '' });
-        //
-        //        markers.push({
-        //            position: place,
-        //            map: map,
-        //            title: 'Нужный адрес',
-        //            label: label,
-        //            icon: index === 0 ? icons.check : icons.uncheck
-        //        })
-        //    })
-        //    markers.forEach(function (marker, index) {
-        //        var gMarker = new google.maps.Marker(marker);
-        //
-        //        gMarker.addListener('click', function () {
-        //            changeSelect(Number(gMarker.label.text));
-        //            uncheck(markers);
-        //            check(gMarker);
-        //        })
-        //        markers[index] = gMarker;
-        //    });
-        //    var contacts = $('.gmaps__contacts');
-        //    $('.select-map').on('change', function (e, data) {
-        //        uncheck(markers);
-        //        check(markers[Number(data.id) - 1]);
-        //    })
-        //
-        //    function check(gMarker) {
-        //        var label = $.extend({}, labels.check, { text: gMarker.label.text });
-        //        contacts.addClass('_hidden');
-        //        contacts.eq(Number(gMarker.label.text) - 1).removeClass('_hidden');
-        //        gMarker.setLabel(label);
-        //        gMarker.setIcon(icons.check);
-        //    }
-        //
-        //    function uncheck(gMarkers) {
-        //        gMarkers.forEach(function (gMarker) {
-        //            var label = $.extend({}, labels.uncheck, { text: gMarker.label.text });
-        //
-        //            gMarker.setLabel(label);
-        //            gMarker.setIcon(icons.uncheck);
-        //        })
-        //    }
-        //}
+        } else {
+            places.forEach(function (place, index) {
+                var label = $.extend({}, (index === 0 ? labels.check : labels.uncheck), { text: index + 1 + '' });
+
+                markers.push({
+                    position: place,
+                    map: map,
+                    title: 'Нужный адрес',
+                    label: label,
+                    icon: index === 0 ? icons.check : icons.uncheck
+                })
+            })
+            markers.forEach(function (marker, index) {
+                var gMarker = new google.maps.Marker(marker);
+
+                gMarker.addListener('click', function () {
+                    changeSelect(Number(gMarker.label.text));
+                    uncheck(markers);
+                    check(gMarker);
+                })
+                markers[index] = gMarker;
+            });
+            var contacts = $('.gmaps__contacts');
+            $('.select-map').on('change', function (e, data) {
+                uncheck(markers);
+                check(markers[Number(data.id) - 1]);
+            })
+
+            function check(gMarker) {
+                var label = $.extend({}, labels.check, { text: gMarker.label.text });
+                contacts.addClass('_hidden');
+                contacts.eq(Number(gMarker.label.text) - 1).removeClass('_hidden');
+                gMarker.setLabel(label);
+                gMarker.setIcon(icons.check);
+            }
+
+            function uncheck(gMarkers) {
+                gMarkers.forEach(function (gMarker) {
+                    var label = $.extend({}, labels.uncheck, { text: gMarker.label.text });
+
+                    gMarker.setLabel(label);
+                    gMarker.setIcon(icons.uncheck);
+                })
+            }
+        }
 
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < markers.length; i++) {
             bounds.extend(markers[i].getPosition());
         }
-        //map.fitBounds
-        //$(window).on('resize', map.fitBounds.bind(map, bounds));
+        !center && map.fitBounds(bounds);
     }
 
 }
